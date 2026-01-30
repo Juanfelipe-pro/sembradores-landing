@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sembradores de Fe</title>
+    <title>Devocional - Sembradores de Fe</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -27,18 +27,72 @@
         body {
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
-            background: linear-gradient(180deg, #1e3c72 0%, #2a5298 20%, #ffd966 50%, #2a5298 80%, #1e3c72 100%);
+            background: linear-gradient(180deg, #FFFFFF 15.38%, rgba(242, 183, 5, 0.71) 38.94%, rgba(242, 183, 5, 0.71) 63.92%, #022873 94.23%);
             background-attachment: fixed;
+            min-height: 100vh;
         }
 
-        /* Header Styles */
+        /* Splash screen */
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #022873 0%, #033399 50%, #022873 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .splash-screen.splash-hidden {
+            opacity: 0;
+            transform: scale(1.1);
+            pointer-events: none;
+        }
+
+        .splash-screen .splash-logo {
+            max-width: 220px;
+            max-height: 220px;
+            width: 80%;
+            height: auto;
+            animation: splashPulse 1.5s ease-in-out infinite;
+        }
+
+        .splash-text {
+            color: #f2b705;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 20px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        @keyframes splashPulse {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(242, 183, 5, 0.3)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 40px rgba(242, 183, 5, 0.6)); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Section */
         .hero-section {
             position: relative;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
-            background: linear-gradient(180deg, #1e3c72 0%, #2a5298 20%, #ffd966 50%, #2a5298 80%, #1e3c72 100%);
+            padding: 40px 20px;
+            background: linear-gradient(180deg, #FFFFFF 15.38%, rgba(242, 183, 5, 0.71) 38.94%, rgba(242, 183, 5, 0.71) 63.92%, #022873 94.23%);
         }
 
         .hero-background {
@@ -82,651 +136,633 @@
         }
 
         /* Logo flotante */
+        .logo-container {
+            position: relative;
+            z-index: 10;
+            margin-bottom: 30px;
+        }
+
         .logo-circle {
-            position: absolute;
-            top: 40px;
-            left: 50px;
-            width: 130px;
-            height: 130px;
+            width: 150px;
+            height: 150px;
             background: transparent;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 10;
-            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
-            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 10px 40px rgba(0, 0, 0, 0.5));
+            animation: float 4s ease-in-out infinite;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(2deg); }
+            50% { transform: translateY(-25px) rotate(0deg); }
+            75% { transform: translateY(-15px) rotate(-2deg); }
         }
 
         .logo-circle img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            display: block;
         }
 
-        /* Splash screen */
-        .splash-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.6s ease-out;
-        }
-
-        .splash-screen.splash-hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .splash-screen .splash-logo {
-            max-width: 220px;
-            max-height: 220px;
-            width: 80%;
-            height: auto;
-            animation: splashPulse 1.5s ease-in-out infinite;
-        }
-
-        @keyframes splashPulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.9; }
-        }
-
-        /* Contenido central */
+        /* Contenido hero */
         .hero-content {
             position: relative;
-            z-index: 3;
+            z-index: 5;
             text-align: center;
             color: white;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f2b705 0%, #d4a005 100%);
+            color: #022873;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 30px rgba(242, 183, 5, 0.4);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 5px 30px rgba(242, 183, 5, 0.4); }
+            to { box-shadow: 0 5px 50px rgba(242, 183, 5, 0.7); }
         }
 
         .hero-title {
-            font-size: 5rem;
+            font-size: 4rem;
             font-weight: 900;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #ffffff 0%, #f2b705 50%, #ffffff 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
         }
 
-        /* Menú desktop */
-        .hero-nav {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            margin-top: auto;
+        @keyframes shimmer {
+            to { background-position: 200% center; }
         }
 
-        .hero-nav ul {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            list-style: none;
-            margin: 0;
-            padding: 0;
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 15px;
+            line-height: 1.8;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
         }
 
-        .hero-nav li {
-            flex: 1;
-            text-align: center;
-            border-right: 1px solid rgba(255, 255, 255, 0.2);
+        .hero-verse {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #fff;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            padding: 20px;
+            border-left: 4px solid #f2b705;
+            background: rgba(2, 40, 115, 0.6);
+            border-radius: 0 10px 10px 0;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
         }
 
-        .hero-nav li:last-child {
-            border-right: none;
-        }
-
-        .hero-nav a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            padding: 30px 20px;
-            font-weight: 700;
-            font-size: 1.05rem;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            letter-spacing: 1px;
-        }
-
-        .hero-nav a:hover {
-            background: rgba(255, 217, 102, 0.9);
-            color: #333;
-        }
-
-        /* Menú hamburguesa */
-        .hamburger-menu {
-            display: none;
+        .scroll-indicator {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 100;
-            background: white;
-            border: none;
-            border-radius: 10px;
-            padding: 15px;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: bounce 2s infinite;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-        .hamburger-menu span {
-            display: block;
-            width: 30px;
-            height: 3px;
-            background: #1e3c72;
-            margin: 6px 0;
-            transition: 0.3s;
-            border-radius: 2px;
+        .scroll-indicator i {
+            font-size: 2rem;
+            color: #f2b705;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
         }
 
-        .hamburger-menu.active span:nth-child(1) {
-            transform: rotate(-45deg) translate(-6px, 6px);
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-20px); }
+            60% { transform: translateX(-50%) translateY(-10px); }
         }
 
-        .hamburger-menu.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger-menu.active span:nth-child(3) {
-            transform: rotate(45deg) translate(-6px, -6px);
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 300px;
-            height: 100vh;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            z-index: 99;
-            transition: right 0.3s ease;
-            padding-top: 80px;
-        }
-
-        .mobile-menu.active {
-            right: 0;
-        }
-
-        .mobile-menu ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .mobile-menu li {
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .mobile-menu a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            padding: 20px 30px;
-            font-weight: 700;
-            font-size: 1rem;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu a:hover {
-            background: rgba(255, 217, 102, 0.2);
-            padding-left: 40px;
-        }
-
-        /* Video Section */
+        /* Sección de Video */
         .video-section {
-            padding: 80px 0;
+            position: relative;
+            z-index: 5;
+            padding: 80px 20px;
         }
 
-        .section-badge {
-            background: white;
-            color: #f9c74f;
-            padding: 12px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            display: inline-block;
+        .video-header {
+            text-align: center;
             margin-bottom: 40px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            font-size: 1.2rem;
-            letter-spacing: 1px;
+        }
+
+        .video-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #022873;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
+        }
+
+        .video-subtitle {
+            font-size: 1.1rem;
+            color: #022873;
+            opacity: 0.85;
         }
 
         .video-container {
             position: relative;
-            background: #ddd;
+            max-width: 800px;
+            margin: 0 auto;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
             aspect-ratio: 16/9;
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: linear-gradient(135deg, #022873 0%, #033399 100%);
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
         .video-container:hover {
             transform: scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(2, 40, 115, 0.9) 0%, rgba(3, 51, 153, 0.9) 100%);
         }
 
         .play-button {
-            width: 120px;
-            height: 120px;
-            background: white;
+            width: 100px;
+            height: 100px;
+            background: #f2b705;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.5rem;
-            color: #f9c74f;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(242, 183, 5, 0.4);
+        }
+
+        .play-button i {
+            font-size: 2.5rem;
+            color: #022873;
+            margin-left: 5px;
         }
 
         .video-container:hover .play-button {
-            transform: scale(1.1);
-            background: #f9c74f;
-            color: white;
+            transform: scale(1.15);
+            box-shadow: 0 15px 40px rgba(242, 183, 5, 0.6);
         }
 
-        /* Cards Section */
-        .cards-section {
-            padding: 80px 0;
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Sección de características */
+        .features-section {
+            position: relative;
+            z-index: 5;
+            padding: 100px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
-            margin-bottom: 50px;
-            color: #fff;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: #022873;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
         }
 
-        .card-grid {
-            display: flex;
-            flex-wrap: wrap;
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #022873;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Cards de características */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            justify-content: center;
-            align-items: stretch;
-            max-width: 690px;
-            margin: 0 auto 60px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .card-grid .feature-card {
-            flex: 0 0 200px;
+        .feature-card:last-child {
+            grid-column: 2 / 3;
+        }
+
+        @media (max-width: 992px) {
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            
+            .feature-card:last-child {
+                grid-column: auto;
+            }
         }
 
         .feature-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px 20px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 40px 30px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            width: 200px;
-            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #022873, #f2b705, #022873);
+            background-size: 200% 100%;
+            animation: gradientMove 3s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
         }
 
-        .card-icon {
-            width: 80px;
-            height: 80px;
-            background: #1e3c72;
+        .feature-number {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(2, 40, 115, 0.08);
+            line-height: 1;
+        }
+
+        .feature-icon {
+            position: relative;
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, #022873 0%, #033399 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            color: white;
-            font-size: 2rem;
+            font-size: 2.5rem;
+            color: #f2b705;
+            box-shadow: 0 10px 30px rgba(2, 40, 115, 0.4);
+            transition: all 0.5s ease;
         }
 
-        .card-title {
-            font-size: 0.9rem;
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 15px 40px rgba(2, 40, 115, 0.5);
+        }
+
+        .feature-icon::after {
+            content: '';
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border: 2px dashed rgba(2, 40, 115, 0.3);
+            border-radius: 50%;
+            animation: rotateIcon 10s linear infinite;
+        }
+
+        @keyframes rotateIcon {
+            to { transform: rotate(360deg); }
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
             font-weight: 700;
+            color: #022873;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .feature-description {
+            font-size: 1rem;
             color: #333;
-            letter-spacing: 0.5px;
+            line-height: 1.7;
+            position: relative;
         }
 
-        /* Devotional Section - respeta la paleta del body */
-        .devotional-section {
-            padding: 80px 0;
-            color: white;
-        }
-
-        .devotional-section .section-title {
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .devotional-offer-box {
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 217, 102, 0.6);
-            border-radius: 20px;
-            padding: 40px 30px;
-            max-width: 600px;
-            margin: 35px auto 0;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        }
-
-        .devotional-offer-box .offer-label {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #ffd966;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-
-        .devotional-offer-box .cta-button {
-            margin-bottom: 0;
-            padding: 20px 50px;
-            font-size: 1.25rem;
-        }
-
-        .devotional-image {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-
-        .devotional-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .devotional-text {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            line-height: 1.9;
-            font-size: 1.1rem;
-        }
-
-        /* CTA Section */
+        /* Sección CTA */
         .cta-section {
-            padding: 60px 0;
+            position: relative;
+            z-index: 5;
+            padding: 80px 20px;
             text-align: center;
+        }
+
+        .cta-box {
+            background: white;
+            border-radius: 30px;
+            padding: 60px 40px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 30px;
+            padding: 4px;
+            background: linear-gradient(180deg, #022873 0%, #f2b705 50%, #022873 100%);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #022873;
+            margin-bottom: 15px;
+        }
+
+        .cta-text {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .cta-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #f2b705;
+            margin-bottom: 10px;
+        }
+
+        .cta-price-note {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 30px;
         }
 
         .cta-button {
-            background: #ffd966;
-            color: #333;
-            padding: 18px 60px;
+            display: inline-block;
+            background: #022873;
+            color: #f2b705;
+            padding: 18px 50px;
             border-radius: 50px;
             font-weight: 800;
-            font-size: 1.3rem;
-            border: none;
-            box-shadow: 0 10px 30px rgba(255, 217, 102, 0.3);
-            transition: all 0.3s ease;
-            display: inline-block;
+            font-size: 1.1rem;
             text-decoration: none;
-            margin-bottom: 30px;
+            text-transform: uppercase;
             letter-spacing: 1px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(2, 40, 115, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
         }
 
         .cta-button:hover {
-            background: #f9c74f;
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 217, 102, 0.4);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(2, 40, 115, 0.5);
+            color: #f2b705;
+            background: #033399;
         }
 
-        /* Botón de DEVOCIONAL RESALTADO */
-        .btn-DEVOCIONAL {
-            background: linear-gradient(135deg, #ffd966 0%, #f9c74f 100%);
-            color: #333;
-            padding: 20px 70px;
-            border-radius: 50px;
-            font-weight: 900;
-            font-size: 1.4rem;
-            border: 3px solid white;
-            box-shadow: 0 15px 50px rgba(255, 217, 102, 0.6);
-            transition: all 0.3s ease;
-            display: inline-block;
-            text-decoration: none;
-            letter-spacing: 2px;
-            animation: pulse 2s infinite;
+        .cta-button:hover::before {
+            left: 100%;
         }
 
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 15px 50px rgba(255, 217, 102, 0.6);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 20px 60px rgba(255, 217, 102, 0.8);
-            }
-        }
-
-        .btn-DEVOCIONAL:hover {
-            background: linear-gradient(135deg, #f9c74f 0%, #ffd966 100%);
-            transform: scale(1.1);
-            box-shadow: 0 20px 60px rgba(255, 217, 102, 1);
-            color: #333;
-        }
-
-        /* Footer - continúa el linear-gradient del body */
+        /* Footer */
         .footer {
-            background: transparent;
-            color: white;
-            padding: 40px 0 20px;
+            position: relative;
+            z-index: 5;
+            background: #022873;
+            padding: 50px 20px 30px;
+            text-align: center;
         }
 
-        .footer-content {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-
-        .footer-section h5 {
+        .footer-logo {
+            width: 80px;
+            height: 80px;
             margin-bottom: 20px;
-            color: #ffd966;
-            font-weight: 800;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
         }
 
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 10px;
+        .footer-text {
+            color: #ffffff;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
         }
 
         .social-icons {
             display: flex;
+            justify-content: center;
             gap: 15px;
+            margin-bottom: 30px;
         }
 
         .social-icon {
             width: 45px;
             height: 45px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            text-decoration: none;
+            color: #fff;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
-            font-size: 1.3rem;
+            text-decoration: none;
         }
 
         .social-icon:hover {
-            background: #ffd966;
-            color: #0a1628;
-            transform: scale(1.15);
+            background: #f2b705;
+            color: #022873;
+            transform: translateY(-5px);
+            border-color: #f2b705;
         }
 
         .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 20px;
         }
 
         /* Responsive */
         @media (max-width: 992px) {
             .hero-title {
-                font-size: 3.5rem;
+                font-size: 3rem;
             }
-
-            .hero-nav {
-                display: none;
+            
+            .section-title {
+                font-size: 2.2rem;
             }
-
-            .hamburger-menu {
-                display: block;
-            }
-
-            .mobile-menu {
-                display: block;
+            
+            .video-title {
+                font-size: 2rem;
             }
         }
 
-        @media (max-width: 768px) {
-            .logo-circle {
-                width: 110px;
-                height: 110px;
-                left: 24px;
-                top: 24px;
-            }
-
+        @media (max-width: 576px) {
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
-
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-verse {
+                font-size: 1rem;
+                padding: 15px;
+            }
+            
             .section-title {
                 font-size: 1.8rem;
             }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
+            
+            .video-title {
+                font-size: 1.6rem;
             }
-
-            .social-icons {
-                justify-content: center;
+            
+            .play-button {
+                width: 70px;
+                height: 70px;
             }
-
-            .btn-DEVOCIONAL {
-                padding: 18px 50px;
-                font-size: 1.2rem;
+            
+            .play-button i {
+                font-size: 1.8rem;
             }
-        }
-
-        @media (max-width: 480px) {
-            .logo-circle {
-                width: 95px;
-                height: 95px;
-                left: 18px;
-                top: 18px;
+            
+            .feature-card {
+                padding: 30px 20px;
             }
-
-            .hero-title {
+            
+            .cta-box {
+                padding: 40px 25px;
+            }
+            
+            .cta-title {
+                font-size: 1.6rem;
+            }
+            
+            .cta-price {
                 font-size: 2rem;
             }
-
-            .cta-button {
-                padding: 15px 40px;
-                font-size: 1.1rem;
-            }
-
-            .card-grid {
-                max-width: 100%;
-                gap: 20px;
-            }
-
-            .card-grid .feature-card {
-                flex: 0 0 calc(50% - 10px);
-                max-width: calc(50% - 10px);
+            
+            .logo-circle {
+                width: 120px;
+                height: 120px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Splash screen con logo -->
+    <!-- Splash Screen -->
     <div class="splash-screen" id="splashScreen">
         <img src="logo.png" alt="Sembradores de Fe" class="splash-logo">
+        <p class="splash-text">Devocional</p>
     </div>
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <img src="hero.png" alt="Sembradores de Fe" class="hero-background">
+        <img src="hero.jpg" alt="Sembradores de Fe" class="hero-background">
         <div class="hero-overlay"></div>
-        
-        <!-- Logo -->
-        <div class="logo-circle" data-aos="zoom-in">
-            <img src="logo.png" alt="SDF">
+
+        <div class="logo-container" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="logo-circle">
+                <img src="logo.png" alt="Sembradores de Fe">
+            </div>
         </div>
 
-        <!-- Menú hamburguesa -->
-        <button class="hamburger-menu" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <div class="hero-content">
+            <span class="hero-badge" data-aos="fade-down" data-aos-delay="200">Comunidad Sembradores de Fe</span>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="400">DEVOCIONAL</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="600">
+                Profundiza en la fe y aprende a escuchar la voz de Dios cada día
+            </p>
+            <div class="hero-verse" data-aos="fade-up" data-aos-delay="800">
+                "Tú, en cambio, cuando vayas a orar, entra en tu aposento y, después de cerrar la puerta, ora a tu Padre, que está allí, en lo secreto; y tu Padre, que ve en lo secreto, te recompensará."
+                <br><strong style="color: #f2b705;">— Mateo 6,6</strong>
+            </div>
+        </div>
 
-        <!-- Menú móvil -->
-        <nav class="mobile-menu" id="mobileMenu">
-            <ul>
-                <li><a href="#inicio">INICIO</a></li>
-                <li><a href="#nosotros">SOBRE NOSOTROS</a></li>
-                <li><a href="#grupos">GRUPOS SDF</a></li>
-                <li><a href="#eventos">EVENTOS SDF</a></li>
-                <li><a href="#DEVOCIONAL">DEVOCIONAL</a></li>
-                <li><a href="#contacto">INFORMACIÓN</a></li>
-            </ul>
-        </nav>
-
-        <!-- Menú desktop -->
-        <nav class="hero-nav">
-            <ul>
-                <li><a href="#inicio">INICIO</a></li>
-                <li><a href="#nosotros">SOBRE NOSOTROS</a></li>
-                <li><a href="#grupos">GRUPOS SDF</a></li>
-                <li><a href="#eventos">EVENTOS SDF</a></li>
-                <li><a href="#DEVOCIONAL">DEVOCIONAL</a></li>
-                <li><a href="#contacto">INFORMACIÓN</a></li>
-            </ul>
-        </nav>
+        <div class="scroll-indicator">
+            <i class="bi bi-chevron-double-down"></i>
+        </div>
     </section>
 
     <!-- Video Section -->
-    <section id="nosotros" class="video-section">
+    <section class="video-section">
         <div class="container">
-            <div class="text-center">
-                <span class="section-badge" data-aos="fade-down">SOBRE NOSOTROS</span>
-                <div class="video-container" data-aos="zoom-in" data-aos-delay="200">
+            <div class="video-header" data-aos="fade-up">
+                <h2 class="video-title">Conoce nuestro Devocional</h2>
+                <p class="video-subtitle">Descubre cómo transformará tu vida espiritual</p>
+            </div>
+            <div class="video-container" data-aos="zoom-in" data-aos-delay="200" id="videoContainer">
+                <div class="video-placeholder" id="videoPlaceholder">
                     <div class="play-button">
                         <i class="bi bi-play-fill"></i>
                     </div>
@@ -735,138 +771,94 @@
         </div>
     </section>
 
-    <!-- Nuestros Grupos Section -->
-    <section id="grupos" class="cards-section">
+    <!-- Features Section -->
+    <section class="features-section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">GRUPOS SDF</h2>
-            <div class="card-grid">
-                <div class="feature-card" data-aos="flip-left" data-aos-delay="100">
-                    <div class="card-icon">
-                        <i class="bi bi-people-fill"></i>
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">¿Qué hace único a este Devocional?</h2>
+                <p class="section-subtitle">Cuatro pilares que transformarán tu vida espiritual día a día</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Característica 1 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="feature-number">01</span>
+                    <div class="feature-icon">
+                        <i class="bi bi-fire"></i>
                     </div>
-                    <p class="card-title">ASAMBLEA GENERAL</p>
+                    <h3 class="feature-title">Inspirado por el Espíritu Santo</h3>
+                    <p class="feature-description">
+                        Cada reflexión ha sido discernida profundamente bajo la guía del Espíritu Santo, garantizando un contenido que toca el corazón y transforma el alma.
+                    </p>
                 </div>
-                <div class="feature-card" data-aos="flip-left" data-aos-delay="200">
-                    <div class="card-icon">
-                        <i class="bi bi-house-heart-fill"></i>
+
+                <!-- Característica 2 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="feature-number">02</span>
+                    <div class="feature-icon">
+                        <i class="bi bi-book-half"></i>
                     </div>
-                    <p class="card-title">KOINONÍA</p>
+                    <h3 class="feature-title">Magisterio de la Iglesia</h3>
+                    <p class="feature-description">
+                        Contenido fundamentado en los tres pilares del magisterio de la Iglesia: la Sagrada Escritura, la Tradición y la Mística, para un crecimiento espiritual sólido.
+                    </p>
                 </div>
-                <div class="feature-card" data-aos="flip-left" data-aos-delay="300">
-                    <div class="card-icon">
-                        <i class="bi bi-star-fill"></i>
+
+                <!-- Característica 3 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <span class="feature-number">03</span>
+                    <div class="feature-icon">
+                        <i class="bi bi-heart-pulse"></i>
                     </div>
-                    <p class="card-title">ASAMBLEA DE JÓVENES</p>
+                    <h3 class="feature-title">Meditación Ignaciana</h3>
+                    <p class="feature-description">
+                        Incorpora la metodología de la meditación ignaciana, diseñada para garantizar una transformación auténtica día a día cuando pones tu parte en el proceso.
+                    </p>
                 </div>
-                <div class="feature-card" data-aos="flip-left" data-aos-delay="400">
-                    <div class="card-icon">
-                        <i class="bi bi-heart-fill"></i>
+
+                <!-- Característica 4 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <span class="feature-number">04</span>
+                    <div class="feature-icon">
+                        <i class="bi bi-camera-video-fill"></i>
                     </div>
-                    <p class="card-title">ASAMBLEA DE PAREJAS</p>
-                </div>
-                <div class="feature-card" data-aos="flip-left" data-aos-delay="500">
-                    <div class="card-icon">
-                        <i class="bi bi-emoji-smile-fill"></i>
-                    </div>
-                    <p class="card-title">ASAMBLEA DE NIÑOS</p>
+                    <h3 class="feature-title">Encuentro Virtual Mensual</h3>
+                    <p class="feature-description">
+                        Una vez al mes, participa en un encuentro virtual exclusivo solo para los miembros del devocional. Un espacio de comunidad y crecimiento compartido.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Actividades Section -->
-    <section id="eventos" class="cards-section" style="padding-top: 0;">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">ACTIVIDADES SDF</h2>
-            <div class="card-grid">
-                <div class="feature-card" data-aos="flip-right" data-aos-delay="100">
-                    <div class="card-icon" style="background: #f9c74f; color: #333;">
-                        <i class="bi bi-calendar-event"></i>
-                    </div>
-                    <p class="card-title">EVENTOS</p>
-                </div>
-                <div class="feature-card" data-aos="flip-right" data-aos-delay="200">
-                    <div class="card-icon" style="background: #f9c74f; color: #333;">
-                        <i class="bi bi-broadcast"></i>
-                    </div>
-                    <p class="card-title">ASAMBLEA PRESENCIALES</p>
-                </div>
-                <div class="feature-card" data-aos="flip-right" data-aos-delay="300">
-                    <div class="card-icon" style="background: #f9c74f; color: #333;">
-                        <i class="bi bi-moon-stars-fill"></i>
-                    </div>
-                    <p class="card-title">AYUNOS</p>
-                </div>
-                <div class="feature-card" data-aos="flip-right" data-aos-delay="400">
-                    <div class="card-icon" style="background: #f9c74f; color: #333;">
-                        <i class="bi bi-phone-vibrate"></i>
-                    </div>
-                    <p class="card-title">GRUPO DE INTERCESION</p>
-                </div>
-                <div class="feature-card" data-aos="flip-right" data-aos-delay="500">
-                    <div class="card-icon" style="background: #f9c74f; color: #333;">
-                        <i class="bi bi-camera-video"></i>
-                    </div>
-                    <p class="card-title">RETIROS CONFERENCIAS</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Devotional Section - Monetización -->
-    <section id="DEVOCIONAL" class="devotional-section">
-        <div class="container">
-            <h2 class="section-title" style="color: #ffd966;" data-aos="fade-up">DEVOCIONAL</h2>
-            <p class="devotional-text mb-0" data-aos="fade-up" data-aos-delay="50" style="font-size: 1.05rem; opacity: 0.95;">Reflexiones diarias para profundizar en la fe y conectar con Dios.</p>
-            <div class="devotional-image" data-aos="zoom-in" data-aos-delay="100">
-                <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=800&h=500&fit=crop" alt="Devocional">
-            </div>
-            <div class="devotional-text" data-aos="fade-up" data-aos-delay="200">
-                <p>
-                    "Tú, en cambio, cuando vayas a orar, entra en tu aposento y, después de cerrar la puerta, ora a tu Padre, que esta allí, en los secreto;  y tu Padre, que ve en lo secreto, te recompensará”.  ( Mateo 6,6)."
-                </p>
-                <p class="mt-3">
-                    "En nuestra comunidad Sembradores De Fe estamos iniciando el devocional para profundizar en la fe y aprender a escuchar la voz de Dios.
-Suscríbete y recibe una reflexión para comenzar el dia con esperanza. "
-                </p>
-            </div>
-            <div class="devotional-offer-box" data-aos="fade-up" data-aos-delay="300">
-                <p class="offer-label">Recibe una reflexión cada día</p>
-                <a href="#" class="cta-button">Suscripción mensual – $25.000 COP</a>
-            </div>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-box" data-aos="zoom-in">
+            <h3 class="cta-title">Comienza tu transformación espiritual</h3>
+            <p class="cta-text">Recibe una reflexión cada día para comenzar con esperanza y propósito</p>
+            <p class="cta-price">$25.000 COP</p>
+            <p class="cta-price-note">Suscripción mensual</p>
+            <a href="#" class="cta-button">
+                <i class="bi bi-stars me-2"></i>Suscribirme ahora
+            </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contacto" class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h5>DIRECCIÓN SEDE PRINCIPAL</h5>
-                    <ul>
-                        <li>Cambarranquilla - Sede Country</li>
-                        <li>Calle 76 # 57-61</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h5>CONTACTO</h5>
-                    <ul>
-                        <li><i class="bi bi-telephone-fill me-2"></i>300 3211933</li>
-                        <li><i class="bi bi-envelope-fill me-2"></i>sembradoresdefefq@gmail.com</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h5>REDES SOCIALES</h5>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Sembradores de Fe. Todos los derechos reservados.</p>
-            </div>
+    <footer class="footer">
+        <img src="logo.png" alt="Sembradores de Fe" class="footer-logo">
+        <p class="footer-text">
+            Sembradores de Fe - Calle 76 # 57-61, Barranquilla<br>
+            <i class="bi bi-telephone-fill me-1"></i> 300 3211933
+        </p>
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-whatsapp"></i></a>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Sembradores de Fe. Todos los derechos reservados.</p>
         </div>
     </footer>
 
@@ -878,60 +870,52 @@ Suscríbete y recibe una reflexión para comenzar el dia con esperanza. "
     
     <script>
         window.addEventListener('load', function() {
-            // Splash: ocultar después de 2.5s o al hacer clic
-            var splash = document.getElementById('splashScreen');
+            // Splash screen
+            const splash = document.getElementById('splashScreen');
             if (splash) {
                 function hideSplash() {
                     splash.classList.add('splash-hidden');
                     setTimeout(function() {
                         splash.style.display = 'none';
-                    }, 600);
+                    }, 800);
                 }
                 splash.addEventListener('click', hideSplash);
                 setTimeout(hideSplash, 2500);
             }
 
+            // Inicializar AOS
             if (typeof AOS !== 'undefined') {
                 AOS.init({
                     duration: 1000,
                     once: true,
-                    offset: 100
+                    offset: 100,
+                    easing: 'ease-out-cubic'
                 });
             }
 
-            // Smooth scrolling
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                    // Cerrar menú móvil
-                    document.getElementById('mobileMenu').classList.remove('active');
-                    document.getElementById('hamburger').classList.remove('active');
+            // Smooth scroll para el indicador
+            document.querySelector('.scroll-indicator')?.addEventListener('click', function() {
+                document.querySelector('.video-section').scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
 
-            // Video player
-            const videoContainer = document.querySelector('.video-container');
-            if (videoContainer) {
-                videoContainer.addEventListener('click', function() {
-                    alert('Aquí se reproducirá tu video.');
+            // Video placeholder click - reemplazar con tu URL de YouTube
+            const videoContainer = document.getElementById('videoContainer');
+            const videoPlaceholder = document.getElementById('videoPlaceholder');
+            
+            if (videoContainer && videoPlaceholder) {
+                videoPlaceholder.addEventListener('click', function() {
+                    // Reemplaza VIDEO_ID con el ID de tu video de YouTube
+                    const videoId = 'VIDEO_ID';
+                    const iframe = document.createElement('iframe');
+                    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+                    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                    iframe.allowFullscreen = true;
+                    videoContainer.innerHTML = '';
+                    videoContainer.appendChild(iframe);
                 });
             }
-
-            // Hamburger menu
-            const hamburger = document.getElementById('hamburger');
-            const mobileMenu = document.getElementById('mobileMenu');
-
-            hamburger.addEventListener('click', function() {
-                this.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
-            });
         });
     </script>
 </body>
