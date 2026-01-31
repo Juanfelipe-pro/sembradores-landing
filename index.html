@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devocional - Sembradores de Fe</title>
+    <title>Despertando con el Espíritu Santo - Sembradores de Fe</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -64,11 +64,12 @@
 
         .splash-text {
             color: #f2b705;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 700;
             margin-top: 20px;
-            letter-spacing: 4px;
+            letter-spacing: 2px;
             text-transform: uppercase;
+            text-align: center;
             animation: fadeInUp 1s ease-out 0.5s both;
         }
 
@@ -104,9 +105,6 @@
             object-fit: cover;
             object-position: center center;
             z-index: 0;
-            image-rendering: auto;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
         }
 
         .hero-overlay {
@@ -139,12 +137,12 @@
         .logo-container {
             position: relative;
             z-index: 10;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .logo-circle {
-            width: 150px;
-            height: 150px;
+            width: 130px;
+            height: 130px;
             background: transparent;
             display: flex;
             align-items: center;
@@ -154,10 +152,8 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-15px) rotate(2deg); }
-            50% { transform: translateY(-25px) rotate(0deg); }
-            75% { transform: translateY(-15px) rotate(-2deg); }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
         .logo-circle img {
@@ -172,7 +168,7 @@
             z-index: 5;
             text-align: center;
             color: white;
-            max-width: 800px;
+            max-width: 850px;
         }
 
         .hero-badge {
@@ -182,25 +178,20 @@
             padding: 10px 30px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 20px;
             box-shadow: 0 5px 30px rgba(242, 183, 5, 0.4);
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from { box-shadow: 0 5px 30px rgba(242, 183, 5, 0.4); }
-            to { box-shadow: 0 5px 50px rgba(242, 183, 5, 0.7); }
         }
 
         .hero-title {
-            font-size: 4rem;
+            font-size: 3.2rem;
             font-weight: 900;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
-            letter-spacing: 3px;
+            letter-spacing: 1px;
+            line-height: 1.2;
             background: linear-gradient(135deg, #ffffff 0%, #f2b705 50%, #ffffff 100%);
             background-size: 200% auto;
             -webkit-background-clip: text;
@@ -214,26 +205,15 @@
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             font-weight: 400;
             color: #fff;
-            margin-bottom: 15px;
-            line-height: 1.8;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-        }
-
-        .hero-verse {
-            font-style: italic;
-            font-size: 1.1rem;
-            color: #fff;
-            max-width: 600px;
-            margin: 0 auto 40px;
-            padding: 20px;
-            border-left: 4px solid #f2b705;
-            background: rgba(2, 40, 115, 0.6);
-            border-radius: 0 10px 10px 0;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-            backdrop-filter: blur(5px);
+            margin-bottom: 30px;
+            line-height: 1.9;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .scroll-indicator {
@@ -254,8 +234,8 @@
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-20px); }
-            60% { transform: translateX(-50%) translateY(-10px); }
+            40% { transform: translateX(-50%) translateY(-15px); }
+            60% { transform: translateX(-50%) translateY(-8px); }
         }
 
         /* Sección de Video */
@@ -271,11 +251,10 @@
         }
 
         .video-title {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 800;
             color: #022873;
             margin-bottom: 10px;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
         }
 
         .video-subtitle {
@@ -315,8 +294,8 @@
         }
 
         .play-button {
-            width: 100px;
-            height: 100px;
+            width: 90px;
+            height: 90px;
             background: #f2b705;
             border-radius: 50%;
             display: flex;
@@ -327,7 +306,7 @@
         }
 
         .play-button i {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: #022873;
             margin-left: 5px;
         }
@@ -346,45 +325,144 @@
             border: none;
         }
 
+        /* Sección Introducción */
+        .intro-section {
+            position: relative;
+            z-index: 5;
+            padding: 80px 20px;
+        }
+
+        .intro-box {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .intro-highlight {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #022873;
+            font-style: italic;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            color: #333;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Sección ¿Qué vivirás? */
+        .experience-section {
+            position: relative;
+            z-index: 5;
+            padding: 80px 20px;
+        }
+
+        .experience-box {
+            background: white;
+            border-radius: 30px;
+            padding: 50px 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #022873, #f2b705, #022873);
+        }
+
+        .experience-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #022873;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .experience-text {
+            font-size: 1.05rem;
+            color: #444;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
         /* Sección de características */
         .features-section {
             position: relative;
             z-index: 5;
-            padding: 100px 20px;
+            padding: 80px 20px;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 70px;
+            margin-bottom: 60px;
         }
 
         .section-title {
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             font-weight: 800;
             color: #022873;
             margin-bottom: 15px;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
         }
 
         .section-subtitle {
-            font-size: 1.2rem;
-            color: #022873;
+            font-size: 1.1rem;
+            color: #333;
             max-width: 600px;
             margin: 0 auto;
-            opacity: 0.9;
         }
 
         /* Cards de características */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1200px;
+            gap: 25px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        .feature-card:last-child {
-            grid-column: 2 / 3;
+        .feature-card:nth-child(4),
+        .feature-card:nth-child(5) {
+            grid-column: span 1;
+        }
+
+        .features-grid::after {
+            content: '';
+            grid-column: span 1;
+        }
+
+        @media (min-width: 993px) {
+            .features-grid {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+            }
+            
+            .feature-card:nth-child(1),
+            .feature-card:nth-child(2),
+            .feature-card:nth-child(3) {
+                grid-column: span 2;
+            }
+            
+            .feature-card:nth-child(4) {
+                grid-column: 2 / span 2;
+            }
+            
+            .feature-card:nth-child(5) {
+                grid-column: 4 / span 2;
+            }
         }
 
         @media (max-width: 992px) {
@@ -392,7 +470,8 @@
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
             
-            .feature-card:last-child {
+            .feature-card:nth-child(4),
+            .feature-card:nth-child(5) {
                 grid-column: auto;
             }
         }
@@ -400,12 +479,12 @@
         .feature-card {
             position: relative;
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            padding: 40px 30px;
+            border-radius: 20px;
+            padding: 35px 25px;
             text-align: center;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s ease;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
         }
 
         .feature-card::before {
@@ -414,7 +493,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
+            height: 4px;
             background: linear-gradient(90deg, #022873, #f2b705, #022873);
             background-size: 200% 100%;
             animation: gradientMove 3s ease infinite;
@@ -426,15 +505,15 @@
         }
 
         .feature-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
 
         .feature-number {
             position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 4rem;
+            top: 10px;
+            right: 15px;
+            font-size: 3rem;
             font-weight: 900;
             color: rgba(2, 40, 115, 0.08);
             line-height: 1;
@@ -442,33 +521,32 @@
 
         .feature-icon {
             position: relative;
-            width: 90px;
-            height: 90px;
-            margin: 0 auto 25px;
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 20px;
             background: linear-gradient(135deg, #022873 0%, #033399 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: #f2b705;
-            box-shadow: 0 10px 30px rgba(2, 40, 115, 0.4);
-            transition: all 0.5s ease;
+            box-shadow: 0 8px 25px rgba(2, 40, 115, 0.35);
+            transition: all 0.4s ease;
         }
 
         .feature-card:hover .feature-icon {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 15px 40px rgba(2, 40, 115, 0.5);
+            transform: scale(1.1) rotate(5deg);
         }
 
         .feature-icon::after {
             content: '';
             position: absolute;
-            width: 110px;
-            height: 110px;
-            border: 2px dashed rgba(2, 40, 115, 0.3);
+            width: 95px;
+            height: 95px;
+            border: 2px dashed rgba(2, 40, 115, 0.2);
             border-radius: 50%;
-            animation: rotateIcon 10s linear infinite;
+            animation: rotateIcon 15s linear infinite;
         }
 
         @keyframes rotateIcon {
@@ -476,18 +554,16 @@
         }
 
         .feature-title {
-            font-size: 1.4rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: #022873;
-            margin-bottom: 15px;
-            position: relative;
+            margin-bottom: 12px;
         }
 
         .feature-description {
-            font-size: 1rem;
-            color: #333;
+            font-size: 0.95rem;
+            color: #555;
             line-height: 1.7;
-            position: relative;
         }
 
         /* Sección CTA */
@@ -501,8 +577,8 @@
         .cta-box {
             background: white;
             border-radius: 30px;
-            padding: 60px 40px;
-            max-width: 700px;
+            padding: 50px 40px;
+            max-width: 750px;
             margin: 0 auto;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
             position: relative;
@@ -527,40 +603,43 @@
             pointer-events: none;
         }
 
-        .cta-title {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #022873;
-            margin-bottom: 15px;
-        }
-
-        .cta-text {
+        .cta-invitation {
             font-size: 1.1rem;
             color: #444;
+            line-height: 1.9;
             margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .cta-highlight {
+            font-size: 1.05rem;
+            color: #022873;
+            font-weight: 600;
+            margin-bottom: 30px;
+            line-height: 1.8;
         }
 
         .cta-price {
             font-size: 2.5rem;
             font-weight: 900;
             color: #f2b705;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .cta-price-note {
             font-size: 0.95rem;
             color: #666;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .cta-button {
             display: inline-block;
             background: #022873;
             color: #f2b705;
-            padding: 18px 50px;
+            padding: 18px 45px;
             border-radius: 50px;
             font-weight: 800;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -582,8 +661,8 @@
         }
 
         .cta-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(2, 40, 115, 0.5);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(2, 40, 115, 0.5);
             color: #f2b705;
             background: #033399;
         }
@@ -653,38 +732,46 @@
         /* Responsive */
         @media (max-width: 992px) {
             .hero-title {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
             
-            .section-title {
-                font-size: 2.2rem;
+            .section-title, .experience-title {
+                font-size: 1.8rem;
             }
             
             .video-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+            
+            .intro-highlight {
+                font-size: 1.3rem;
             }
         }
 
         @media (max-width: 576px) {
             .hero-title {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
             .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .hero-verse {
                 font-size: 1rem;
-                padding: 15px;
             }
             
-            .section-title {
-                font-size: 1.8rem;
+            .section-title, .experience-title {
+                font-size: 1.5rem;
             }
             
             .video-title {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
+            }
+            
+            .intro-highlight {
+                font-size: 1.15rem;
+            }
+            
+            .intro-text, .experience-text {
+                font-size: 0.95rem;
+                text-align: left;
             }
             
             .play-button {
@@ -700,12 +787,8 @@
                 padding: 30px 20px;
             }
             
-            .cta-box {
-                padding: 40px 25px;
-            }
-            
-            .cta-title {
-                font-size: 1.6rem;
+            .experience-box, .cta-box {
+                padding: 35px 25px;
             }
             
             .cta-price {
@@ -713,8 +796,8 @@
             }
             
             .logo-circle {
-                width: 120px;
-                height: 120px;
+                width: 100px;
+                height: 100px;
             }
         }
     </style>
@@ -723,7 +806,7 @@
     <!-- Splash Screen -->
     <div class="splash-screen" id="splashScreen">
         <img src="logo.png" alt="Sembradores de Fe" class="splash-logo">
-        <p class="splash-text">Devocional</p>
+        <p class="splash-text">Despertando con el<br>Espíritu Santo</p>
     </div>
 
     <!-- Hero Section -->
@@ -739,14 +822,10 @@
 
         <div class="hero-content">
             <span class="hero-badge" data-aos="fade-down" data-aos-delay="200">Comunidad Sembradores de Fe</span>
-            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="400">DEVOCIONAL</h1>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="400">Despertando con el<br>Espíritu Santo</h1>
             <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="600">
-                Profundiza en la fe y aprende a escuchar la voz de Dios cada día
+                Despertar con el Espíritu Santo es permitir que Dios te encuentre cada mañana, contemplar su gloria y dejar que Él te transforme, día a día, paso a paso, en un encuentro personal y profundo.
             </p>
-            <div class="hero-verse" data-aos="fade-up" data-aos-delay="800">
-                "Tú, en cambio, cuando vayas a orar, entra en tu aposento y, después de cerrar la puerta, ora a tu Padre, que está allí, en lo secreto; y tu Padre, que ve en lo secreto, te recompensará."
-                <br><strong style="color: #f2b705;">— Mateo 6,6</strong>
-            </div>
         </div>
 
         <div class="scroll-indicator">
@@ -771,12 +850,51 @@
         </div>
     </section>
 
+    <!-- Intro Section -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-box" data-aos="fade-up">
+                <p class="intro-highlight">
+                    Hay días en los que el alma sabe que necesita algo más…<br>
+                    más silencio, más verdad, más Dios.
+                </p>
+                <p class="intro-text">
+                    <strong>Despertando con el Espíritu Santo</strong> es un devocional que nace de la oración y del encuentro personal con Dios. No fue pensado para llenar espacios, sino para abrirlos. Espacios de intimidad, de escucha y de comunión, donde el Espíritu Santo se revela, conduce y permite contemplar la gloria de Dios en lo cotidiano.
+                </p>
+                <p class="intro-text">
+                    Es un camino espiritual accesible y profundo, vivido en comunión con el Magisterio de la Iglesia, que integra la Palabra de Dios, la Tradición y la riqueza mística de nuestra fe. Un devocional para quienes desean detenerse cada día y dejar que Dios forme su interior desde el amor.
+                </p>
+                <p class="intro-text">
+                    Desde el carisma de la comunidad <strong>Sembradores de Fe</strong>, este devocional está orientado a la transformación integral del ser humano. Aquí no se busca solo comprender la Palabra, sino permitir que ella toque el corazón, ordene la mente y transforme la vida.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience-section">
+        <div class="container">
+            <div class="experience-box" data-aos="fade-up">
+                <h2 class="experience-title">¿Qué vivirás en este devocional?</h2>
+                <p class="experience-text">
+                    Cada día encontrarás una reflexión inspirada por la moción del Espíritu Santo, nacida de la oración y del discernimiento, que te invita a comenzar la jornada poniendo tu vida delante de Dios y contemplando su presencia y su gloria.
+                </p>
+                <p class="experience-text">
+                    La meditación se apoya en la Sagrada Escritura y en el Magisterio de la Iglesia, y culmina con preguntas y ejercicios inspirados en la espiritualidad ignaciana, que te ayudan a orar con todo tu ser: mente, corazón y voluntad.
+                </p>
+                <p class="experience-text">
+                    Vivido con apertura y constancia, este devocional traza una línea de crecimiento interior que permite una transformación real, silenciosa y profunda, día tras día.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Features Section -->
     <section class="features-section">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">¿Qué hace único a este Devocional?</h2>
-                <p class="section-subtitle">Cuatro pilares que transformarán tu vida espiritual día a día</p>
+                <h2 class="section-title">Lo que recibes al iniciar este camino</h2>
+                <p class="section-subtitle">Al acceder a Despertando con el Espíritu Santo, tienes acceso a un camino espiritual estructurado</p>
             </div>
 
             <div class="features-grid">
@@ -784,11 +902,11 @@
                 <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
                     <span class="feature-number">01</span>
                     <div class="feature-icon">
-                        <i class="bi bi-fire"></i>
+                        <i class="bi bi-sunrise"></i>
                     </div>
-                    <h3 class="feature-title">Inspirado por el Espíritu Santo</h3>
+                    <h3 class="feature-title">Devocionales Diarios</h3>
                     <p class="feature-description">
-                        Cada reflexión ha sido discernida profundamente bajo la guía del Espíritu Santo, garantizando un contenido que toca el corazón y transforma el alma.
+                        Escritos desde la oración, inspirados en la moción del Espíritu Santo, para acompañarte cada día en tu encuentro personal con Dios.
                     </p>
                 </div>
 
@@ -798,9 +916,9 @@
                     <div class="feature-icon">
                         <i class="bi bi-book-half"></i>
                     </div>
-                    <h3 class="feature-title">Magisterio de la Iglesia</h3>
+                    <h3 class="feature-title">Reflexiones Bíblicas Profundas</h3>
                     <p class="feature-description">
-                        Contenido fundamentado en los tres pilares del magisterio de la Iglesia: la Sagrada Escritura, la Tradición y la Mística, para un crecimiento espiritual sólido.
+                        Vividas en comunión con el Magisterio de la Iglesia, integrando la Palabra de Dios, la Tradición y la espiritualidad cristiana.
                     </p>
                 </div>
 
@@ -812,7 +930,7 @@
                     </div>
                     <h3 class="feature-title">Meditación Ignaciana</h3>
                     <p class="feature-description">
-                        Incorpora la metodología de la meditación ignaciana, diseñada para garantizar una transformación auténtica día a día cuando pones tu parte en el proceso.
+                        Te ayuda a discernir, a escuchar a Dios en tu interior y a permitir una transformación real y progresiva.
                     </p>
                 </div>
 
@@ -820,11 +938,23 @@
                 <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
                     <span class="feature-number">04</span>
                     <div class="feature-icon">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </div>
+                    <h3 class="feature-title">Línea de Crecimiento Espiritual</h3>
+                    <p class="feature-description">
+                        Clara y progresiva, que te guía paso a paso, evitando la improvisación y ayudándote a avanzar con sentido y profundidad.
+                    </p>
+                </div>
+
+                <!-- Característica 5 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <span class="feature-number">05</span>
+                    <div class="feature-icon">
                         <i class="bi bi-camera-video-fill"></i>
                     </div>
                     <h3 class="feature-title">Encuentro Virtual Mensual</h3>
                     <p class="feature-description">
-                        Una vez al mes, participa en un encuentro virtual exclusivo solo para los miembros del devocional. Un espacio de comunidad y crecimiento compartido.
+                        Exclusivo para quienes pertenecen al devocional, como espacio de oración, enseñanza y comunión.
                     </p>
                 </div>
             </div>
@@ -834,12 +964,18 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="cta-box" data-aos="zoom-in">
-            <h3 class="cta-title">Comienza tu transformación espiritual</h3>
-            <p class="cta-text">Recibe una reflexión cada día para comenzar con esperanza y propósito</p>
+            <p class="cta-invitation">
+                Si hoy sientes el deseo de comenzar tus días de una manera distinta,<br>
+                si anhelas profundidad, claridad y un encuentro real con Dios,<br>
+                <strong>este devocional es para ti.</strong>
+            </p>
+            <p class="cta-highlight">
+                Despertar con el Espíritu Santo es permitir que Dios te encuentre cada mañana y transforme tu interior, paso a paso, desde el amor.
+            </p>
             <p class="cta-price">$25.000 COP</p>
             <p class="cta-price-note">Suscripción mensual</p>
             <a href="#" class="cta-button">
-                <i class="bi bi-stars me-2"></i>Suscribirme ahora
+                <i class="bi bi-stars me-2"></i>Comenzar mi camino
             </a>
         </div>
     </section>
